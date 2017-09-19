@@ -1,0 +1,49 @@
+﻿{
+    "data": [
+        {
+            "id": 1,
+            "category": "real_estate",
+            "title": "Steak House Restaurant",
+            "location": "Doranda, Ranchi",
+            "latitude": 23.3393490,
+            "longitude": 85.3162070,
+            "type": "Apartment",
+            "type_icon": "views/assets/icons/store/apparel/umbrella-2.png",
+            "gallery":
+                [
+                    "views/assets/img/items/1.jpg",
+                    "views/assets/img/items/5.jpg",
+                    "views/assets/img/items/4.jpg"
+                ],
+            
+            "date_created": "2014-11-03",
+            "price": "$2500",
+           
+            "description": "Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa, viverra interdum eros ut, imperdiet pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis. Curabitur suscipit, justo eu dignissim lacinia, ante sapien pharetra duin consectetur eros augue sed ex. Donec a odio rutrum, hendrerit sapien vitae, euismod arcu."
+            
+        },
+        {
+            "id": 2,
+            "category": "real_estate",
+            "title": "Steak House Restaurant",
+            "location": "Doranda, Ranchi",
+            "latitude": 23.3393490,
+            "longitude": 85.3162070,
+            "type": "Apartment",
+            "type_icon": "views/assets/icons/store/apparel/umbrella-2.png",
+            "gallery":
+                [
+                    "views/assets/img/items/1.jpg",
+                    "views/assets/img/items/5.jpg",
+                    "views/assets/img/items/4.jpg"
+                ],
+            
+            "date_created": "2014-11-03",
+            "price": "$2500",
+           
+            "description": "Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa, viverra interdum eros ut, imperdiet pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis. Curabitur suscipit, justo eu dignissim lacinia, ante sapien pharetra duin consectetur eros augue sed ex. Donec a odio rutrum, hendrerit sapien vitae, euismod arcu."
+            
+        }
+
+    ]
+}

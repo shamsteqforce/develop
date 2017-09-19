@@ -1,0 +1,32 @@
+<div class="container" ng-controller="SearchController as asearch">
+   <form  ng-if="!asearch.loggedIn" class="main-search border-less-inputs" role="form" method="post" name="anonymousSearchForm" novalidate >
+                             
+                              <div class="form-group input-group" ng-class="{ 'has-error' : anonymousSearchForm.asearchText.$invalid && !searchForm.searchText.$pristine }">
+                                            <input type="text" class="form-control" id="location" placeholder="Enter Location" ng-model="asearch.asearchText" name="searchText" required ng-pattern="/[ABCEGHJKLMNPRSTVXY]\d[A-Z ][ ]\d[A-Z]\d/" ng-maxlength="7" ng-minlength="7">
+                                           
+                                            <!--
+                                          <span class="input-group-addon"><i class="fa fa-map-marker geolocation" data-toggle="tooltip" data-placement="bottom" title="Find my position"></i></span>
+                                          -->
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" type="button" ng-click="asearch.go('/search')" ng-disabled="anonymousSearchForm.$invalid">Search</i>
+                                                </button>
+                                            </span>
+                                        </div>
+  <p ng-show="anonymousSearchForm.searchText.$error.required && !anonymousSearchForm.searchText.$pristine" class="help-block">Postal Code is required.</p>
+                                    <p data-ng-show='anonymousSearchForm.searchText.$error.pattern || anonymousSearchForm.searchText.$error.maxlength || userForm.zip.$error.minlength' class="help-block"> Invalid Postal Code</p>                                      
+                                
+                        </form>
+                          
+
+</div>
+
+
+
+
+<div class="row footer-top-border">
+<div class="container footer">
+                <span class="left">(C) The Hive, All rights reserved</span>
+
+            </div>
+</div>
+

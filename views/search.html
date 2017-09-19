@@ -1,0 +1,85 @@
+<base href=""/>
+<!-- Navigation-->
+<ng-include src="'views/navigation.html'"></ng-include>
+
+<!-- end Navigation-->
+
+                  
+                    <div class="row" ng-controller="SearchController as search" style="padding:10px;" >
+
+                    <div id="searchPage">
+
+                    <div class="search-bar horizontal">
+
+<div class="row">
+<div class="container">
+                        <form class="main-search border-less-inputs" role="form" method="post" name="searchForm" novalidate>
+                             
+                              <div class="form-group input-group" ng-class="{ 'has-error' : searchForm.searchText.$invalid && !searchForm.searchText.$pristine }">
+                                            <input type="text" class="form-control" id="location" placeholder="Enter Location" ng-model="search.searchText" name="searchText" required>
+                                            <!--
+                                          <span class="input-group-addon"><i class="fa fa-map-marker geolocation" data-toggle="tooltip" data-placement="bottom" title="Find my position"></i></span>
+                                          -->
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" type="button" ng-click="search.getSearchBusiness()" ng-disabled="searchForm.$invalid">Search</i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                
+                        </form>
+
+
+                              
+          <!--  test                    
+
+{{search.searchData}}-->
+
+
+                        </div>
+                        </div>
+                        <!-- /.main-search -->
+               </div>
+
+                    <!-- /.search-bar -->
+                    <!-- Map Canvas-->
+
+
+                    <div class="map-canvas list-width-30">
+                        <!-- Map -->
+                        
+                        <div class="map">
+                      <!--
+                            <div class="toggle-navigation">
+                                <div class="icon">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                </div>
+                            </div>
+-->
+                            <div id="map" class="has-parallax"></div>
+                            <!--/#map-->
+
+                        </div>
+                        <!-- end Map -->
+                        <!--Items List-->
+                        <div class="items-list">
+                            <div class="inner">
+                                <header>
+                                    <h3>Business Listings</h3>
+                                </header>
+                                <ul class="results list">
+
+                                </ul>
+                            </div>
+                            <!--results-->
+                        </div>
+                        <!--end Items List-->
+
+</div><!-- searchpage div -->
+
+                        </div>
+
+
+
+<ng-include src="'views/common_footer.html'"></ng-include>

@@ -1,0 +1,146 @@
+<script type="text/javascript">
+$("#carouselListing").carousel();
+
+</script>
+<base href=""/>
+
+<!-- Navigation-->
+<ng-include src="'views/navigation.html'"></ng-include>
+<!-- end Navigation-->
+ <div class="row" style="padding:10px;">
+     <div class="col-mod-3">
+        
+         <!-- sidebar will come here -->
+     </div> <!-- col-mod-3 -->
+                        
+                        
+  						<div class="col-mod-9">
+                         
+                                  <div id="page-wrapper">
+                                  
+                                  <div class="row">
+                                       <div class="col-md-6 col-sm-6">
+                                       
+                                       <!--
+                                       <div id="myCarousel" class="carousel slide" data-ride="carousel">  
+                                                  <div class="carousel-inner">
+                                                    <div class="item active"> <img src="views/assets/slider/back1.jpg" style="width:100%" alt="First slide"></div>
+                                                    <div class="item"> <img src="views/assets/slider/back2.jpg" style="width:100%" alt="Second slide"></div>
+                                                     <div class="item"> <img src="views/assets/slider/back1.jpg" style="width:100%" alt="Third slide"> </div>
+                                                 </div>
+                                                 
+                                            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>      
+                                         </div>
+                                         
+                                         -->
+                                         
+ <div id="carouselListing" class="carousel slide" data-ride="carousel">
+    <!-- Menu -->
+    <ol class="carousel-indicators">
+        <li data-target="#carouselListing" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselListing" data-slide-to="1"></li>
+        <li data-target="#carouselListing" data-slide-to="2"></li>
+    </ol>
+    
+    <!-- Items -->
+    <div class="carousel-inner">
+        
+        <div class="item active"> <img src="views/assets/slider/back1.jpg" style="width:100%" alt="First slide"></div>
+        <div class="item"> <img src="views/assets/slider/back2.jpg" style="width:100%" alt="Second slide"></div>
+        <div class="item"> <img src="views/assets/slider/back1.jpg" style="width:100%" alt="Third slide"> </div>
+    </div> 
+    
+    <div class="leftArrowButton"><span class="left carousel-control" data-target="#carouselListing" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+</span></div>
+     <div class="rightArrowButton"><span class="right carousel-control" data-target="#carouselListing" data-slide="next">
+   <span class="glyphicon glyphicon-chevron-right"></span>
+</span></div>
+
+</div>       
+                                       </div>
+                                       
+                                       
+                                       <div class="col-md-6 col-sm-6">
+                                           <h2>Listing Details</h2>
+                                           <p>Price</p>
+                                           <p>Listing Title</p>
+                                           <p>Listing Details</p>
+                                           <p>Delivery Options</p>       
+                                           <p>Delivery Dates</p>
+                                           <p><ngcart-addtocart id="item1" name="My Item #1" price="10.99" quantity="1" quantity-max="5" >Add to Cart</ngcart-addtocart></p>
+                                       </div>
+                                       
+                                </div><!-- end of row inside -->   
+                                
+                                  <div class="row">
+                                  <!-- map will be shown here for a particular listing -->
+                                      <div class="col-md-6 col-sm-6" ng-controller="SingleListingController as singleList" style="float:left; position:relative;">
+                                     
+                                              <div class="map-canvas">                                             
+                                                    <div class="map listingPageMap">                   
+                                                      <div id="map" class="has-parallax listingPageInsideMap"></div>
+                                                     </div>
+                                               </div> 
+                                               
+                                         <div class="items-list listPageMapResults" style="visibility:hidden;">
+                                            <div class="inner">
+                                                <header>
+                                                    <h3>Business Listings</h3>
+                                                </header>
+                                                <ul class="results list listPageMapResults" style="visibility:hidden;">
+                
+                                                </ul>
+                                            </div>
+                                            
+                                        </div>   <!-- items-list --> 
+                                             
+                              			 </div> <!-- col-md-6 col-sm-6 -->
+                                       
+                                       <div class="col-md-6 col-sm-6">
+                                       
+                                      
+                                       		 <h2>Seller Details</h2>
+                                              <aside><img src="views/assets/img/giselle.jpg" alt="" width="130" height="130" class="img-responsive">
+                                              </aside>
+                                               <header class="no-border"><h3>Contact Information</h3></header>
+                                               <address>
+                                                        <div><strong>The Hive Market</strong></div>
+                                                        <div>6969 Bayers Road, Nova Scotia</div>
+                                                        <div>Halifax, Canada, B3L 4P3</div>
+                                                        <br>
+                                                        <figure>
+                                                            <div class="info">
+                                                                <i class="fa fa-mobile"></i>
+                                                                <span>818-832-5258</span>
+                                                            </div>
+                                                            <div class="info">
+                                                                <i class="fa fa-phone"></i>
+                                                                <span>+1 123 456 789</span>
+                                                            </div>
+                                                            <div class="info">
+                                                                <i class="fa fa-globe"></i>
+                                                                <a href="#/" target="_blank">www.hivemarket.com</a>
+                                                            </div>
+                                                        </figure>
+                                                        <a href="#/" class="btn btn-large btn-default" id="submit">Contact</a>
+                                       			 </address>
+                                        
+                                           
+                                       </div>
+                                    
+                                       </div>
+                                       
+                                </div><!-- end of row inside -->        
+                                          
+                                 </div>   <!-- /#page-wrapper -->
+                         
+                         </div> <!-- right main content col-mod-9 -->
+  <!--row -->
+                           
+
+
+
+
+
+    <ng-include src="'views/common_footer.html'"></ng-include>

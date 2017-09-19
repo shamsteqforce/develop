@@ -1,0 +1,188 @@
+﻿<ng-include src="'views/navigation.html'"></ng-include>
+
+
+
+<div class="row" ng-controller="AddListingController">
+    <div class="col-md-3 col">
+
+    </div>
+    <div class="col-md-9">
+        <div class="col-md-6 col-sm-offset-1">
+            <h3>Tell Buyers About Your Listing</h3>
+
+            <hr>
+            
+          
+            <form role="form" method="post" name="detailForm" novalidate enctype="multipart/form-data">
+
+                <fieldset ng-show="step == 1">
+                    <div class="form-group" ng-class="{ 'has-error' : detailForm.title.$invalid && !detailForm.title.$pristine }">
+                        <label for="title">List Title:</label>
+                        <input type="text" class="form-control" name="title" required ng-model="form.title">
+                        <p ng-show="detailForm.title.$invalid && !detailForm.title.$pristine" class="help-block">Title is required.</p>
+                    </div><!-- /.form-group -->
+                    <div class="form-group" ng-class="{ 'has-error' : detailForm.desc.$invalid && !detailForm.desc.$pristine }">
+                        <label for="description">Description:</label>
+                        <input type="text" class="form-control" name="desc" required ng-model="form.description">
+                        <p ng-show="detailForm.desc.$invalid && !detailForm.desc.$pristine" class="help-block">Description is required.</p>
+                    </div><!-- /.form-group -->
+                    
+                     <div class="form-group" ng-class="{ 'has-error' : detailForm.category.$invalid && !detailForm.category.$pristine }">
+                        <label for="select">Category:</label>
+                        <select class="form-control" id="categ" name="category" ng-model="form.category" ng-options="a.name group by a.sub for a in category" required>
+                            <option value="">--Select Category--</option>
+                                                                                                              
+                        </select>
+                        <p ng-show="detailForm.category.$invalid && !detailForm.category.$pristine" class="help-block">Category is Required.</p>
+
+                    </div><!-- /.form-group -->
+
+
+                    <h3>Add photos to showcase your listing</h3>
+                    
+                    <!--
+                    <div class="upld col-md-3 form-group" ng-class="{ 'has-error' : detailForm.img1.$invalid && !detailForm.img1.$pristine }">
+                        <input name="img1" type="file" id="input-file-now" class="dropify" ng-model="form.image_data_1" multiple required />
+                        <p ng-show="detailForm.img1.$invalid && !detailForm.img1.$pristine" class="help-block">Image is required.</p>
+
+                    </div>
+                    <div class="upld col-md-3 form-group">
+                        <input name="img2" type="file" id="input-file-now" class="dropify" ng-model="form.image_data_2" multiple required />
+
+                    </div>
+                    <div class="upld col-md-3 form-group">
+                        <input name="img3" type="file" id="input-file-now" class="dropify" ng-model="form.image_data_3" multiple required />
+
+                    </div>
+                    -->
+                     <div class="row listingImageUpload">                     
+                     <div class="col-md-4">
+                      <div class="input-field col s6">
+                <!--<input id="input-file-now" ng-model="form.image_data_1" valid-file name="img1"  required type="file" class="dropify"/>
+                 
+              -->
+              <img ng-src="{{image_source1}}" width="150" height="180">
+               <input type="file" class="ng-show" valid-file  ng-required="!(form.images.image_data_1.length || form.images.image_data_2.length || form.images.image_data_3.length)" onchange="angular.element(this).scope().setFirstFile(this)" accept="image/*" name="img1" ng-model="form.images.image_data_1" />
+                 
+                 <!--  <input valid-file name="img1" type="file" id="input-file-now" class="dropify" ng-model="form.image_data_1" required/>-->
+             		</div>
+                     </div>
+                     <div class="col-md-4">
+                      <div class="input-field col s6">
+                  <img ng-src="{{image_source2}}" width="150" height="180">
+               <input type="file" class="ng-show" valid-file  ng-required="!(form.images.image_data_1.length || form.images.image_data_2.length || form.images.image_data_3.length)" onchange="angular.element(this).scope().setSecondFile(this)" accept="image/*" name="img2" ng-model="form.images.image_data_2" />
+             		</div>
+                     </div>
+                     <div class="col-md-4">
+                      <div class="input-field col s6">
+                  <img ng-src="{{image_source3}}" width="150" height="180">
+               <input type="file" class="ng-show" valid-file ng-required="!(form.images.image_data_1.length || form.images.image_data_2.length || form.images.image_data_3.length)" onchange="angular.element(this).scope().setThirdFile(this)" accept="image/*" name="img3" ng-model="form.images.image_data_3" />
+             		</div>
+                     </div>                       
+                      </div> 
+  
+                   <!--<button type="button" class="btn btn-primary" ng-click="prevStep()">Back</button>-->
+                   <br/>
+                   <div class="form-group" id="btn">
+                    <button type="submit" class="btn btn-primary col-sm-offset-9" ng-click="nextStep()" ng-disabled="detailForm.title.$invalid || detailForm.desc.$invalid || detailForm.img1.$invalid || detailForm.img2.$invalid || detailForm.img3.$invalid || detailForm.category.$invalid" >Next</button>
+                    </div>
+                       
+                    </fieldset>
+					
+					<!--
+                    ng-disabled="detailForm.title.$invalid || detailForm.desc.$invalid || detailForm.img1.$invalid"
+                <br />
+                <b>Title:</b> {{form.title}}<br />
+                <b>Description:</b>  {{form.description}}<br />-->
+               
+
+                <div ng-show="step == 2">
+<!--
+                    <div class="form-group" ng-class="{ 'has-error' : priceForm.price.$invalid && !priceForm.price.$pristine }">
+                        <label for="title">Base Price:</label>
+                        <input type="number" class="form-control" name="price" required ng-model="form.price.baseprice">
+                        <p ng-show="priceForm.price.$invalid && !priceForm.price.$pristine" class="help-block">Base Price is Required.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' : priceForm.currency.$invalid && !priceForm.currency.$pristine }">
+                        <label for="select">Currency:</label>
+                        <select class="form-control" name="select" id="select" ng-model="form.price.currency">
+                            <option ng-repeat="option in data.availableOptions" value="{{option.name}}">{{option.name}}</option>
+                        </select>
+                        <p ng-show="priceForm.currency.$invalid && !priceForm.currency.$pristine" class="help-block">Base Price is Required.</p>
+
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : priceForm.quant.$invalid && !priceForm.quant.$pristine }">
+                        <label for="title">Quantity:</label>
+                        <input type="number" class="form-control" name="quant" required ng-model="form.price.quantity">
+                        <p ng-show="priceForm.quant.$invalid && !priceForm.quant.$pristine" class="help-block">Quantity is Required.</p>
+
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : priceForm.min.$invalid && !priceForm.min.$pristine }">
+                        <label for="title">Min Quantity:</label>
+                        <input type="number" class="form-control" name="min" required ng-model="form.price.minimum">
+                        <p ng-show="priceForm.min.$invalid && !priceForm.min.$pristine" class="help-block">Minimum Quantity is Required.</p>
+
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : priceForm.max.$invalid && !priceForm.max.$pristine }">
+                        <label for="title">Max Quantity:</label>
+                        <input type="number" class="form-control" name="max" required ng-model="form.price.maximum">
+                        <p ng-show="priceForm.max.$invalid && !priceForm.max.$pristine" class="help-block">Maximum Quantity is Required.</p>                </div>
+                        
+               -->         
+                        <div class="form-group" ng-class="{ 'has-error' : detailForm.base_price.$invalid && !detailForm.base_price.$pristine }">
+                        <label for="title">Base Price:</label>
+                        <input type="number" class="form-control" name="base_price" required ng-model="form.price.base_price">
+                        <p ng-show="detailForm.base_price.$invalid && !detailForm.base_price.$pristine" class="help-block">Base Price is Required.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' : detailForm.currency.$invalid && !detailForm.currency.$pristine }">
+                        <label for="select">Currency:</label>
+                        <select class="form-control" name="currency"  ng-model="form.price.currency">
+                            <option value="">Select Currency</option>
+                            <option ng-repeat="option in data.availableOptions" value="{{option.name}}">{{option.name}}</option>
+                        </select>
+                        <p ng-show="detailForm.currency.$invalid && !detailForm.currency.$pristine" class="help-block">Currency is Required.</p>
+
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : detailForm.quantity.$invalid && !detailForm.quantity.$pristine }">
+                        <label for="title">Quantity:</label>
+                        <input type="number" class="form-control" name="quantity" required ng-model="form.price.quantity">
+                        <p ng-show="detailForm.quantity.$invalid && !detailForm.quantity.$pristine" class="help-block">Quantity is Required.</p>
+
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : detailForm.unit.$invalid && !detailForm.unit.$pristine }">
+                        <label for="select">Unit:</label>
+                        <select class="form-control" name="unit"  ng-model="form.price.unit">
+                            <option value="">Select Unit</option>
+                            <option ng-repeat="option in data2.availableOptions2" value="{{option.name}}">{{option.name}}</option>
+                        </select>
+                        <p ng-show="detailForm.unit.$invalid && !detailForm.unit.$pristine" class="help-block">Unit is Required.</p>
+
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : detailForm.inventory.$invalid && !detailForm.inventory.$pristine }">
+                        <label for="title">Available Inventory:</label>
+                        <input type="text" class="form-control" name="inventory" required ng-model="form.price.inventory">
+                        <p ng-show="detailForm.inventory.$invalid && !detailForm.inventory.$pristine" class="help-block">Inventory is Required.</p>
+                           </div>  
+                    
+              
+                    <div class="form-group" id="btn">
+                        <button type="submit" class="btn btn-primary" ng-click="prevStep()">Back</button>
+                        <button type="submit" class="btn btn-primary col-sm-offset-9" ng-disabled="priceForm.price.$invalid || priceForm.select.$invalid" ng-click="nextStep()">Next</button>
+                    </div><!-- /.form-group -->
+                    </div>
+</form>
+        </div>
+         <p>
+    <!-- form data: {{form}} -->
+      
+     <!-- {{files}}-->
+      
+    </p>               
+    </div>
+</div>
+
+<ng-include src="'views/common_footer.html'"></ng-include>

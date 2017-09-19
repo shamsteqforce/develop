@@ -1,0 +1,11 @@
+
+  <ul class="nav navbar-top-links navbar-right">
+               <li ng-if="!loggedIn"><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li ng-if="!loggedIn"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li ng-if="loggedIn"><a href="#/search"><span class="glyphicon glyphicon-user"></span> Hello {{userName}}</a></li>
+                        <li ng-if="loggedIn"><a href="#/singleListing"><span class="glyphicon glyphicon-log-in"></span> Listings</a></li>
+                        <li ng-if="loggedIn"><a href="#/" ng-click="doLogout()">Logout</a></li>
+                        <li><a href="#/">Blog</a></li>
+						<li ng-if="loggedIn"><a href="#" style="padding: 5px 0 0 0; width:150px"><ngcart-summary></ngcart-summary></a></li>
+         
+            </ul>

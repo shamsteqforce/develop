@@ -1,0 +1,40 @@
+<base href=""/>
+<!-- Navigation-->
+<ng-include src="'views/navigation.html'"></ng-include>
+
+<!-- end Navigation-->
+
+<div class="row">
+                <section class="container">
+                    <div class="block">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+
+                                    <h1 class="page-title">Log In</h1>
+
+                                <div ng-if="login.error" class="alert alert-danger" role="alert">{{login.error}}</div>
+                                </header>
+                                <hr>
+                                <form role="form" id="form-sign-in-account" method="post" ng-submit="login.doLogin()" name="loginForm" novalidate>
+                                    <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && !loginForm.email.$pristine }">
+                                        <label for="form-sign-in-email">Email:</label>
+                                        <input type="email" class="form-control" id="form-sign-in-email" name="email" required ng-model="login.loginData.email">
+                                          <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+                                        <label for="form-sign-in-password">Password:</label>
+                                        <input type="password" class="form-control" id="form-sign-in-password" name="password" required ng-model="login.loginData.password" >
+                                        <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block">Enter a valid password.</p>
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group clearfix">
+                                        <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Sign In</button>
+                                    </div><!-- /.form-group -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /.block-->
+ </div>               
+<ng-include src="'views/common_footer.html'"></ng-include>
+

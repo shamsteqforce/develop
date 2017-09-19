@@ -1,0 +1,94 @@
+[
+    {
+        "_id": "56665bd89968836562de166c",
+        "name": "ABC Corporation",
+        "type": "Customer",
+        "__v": 0,
+        "longitude": "85.35551110000006",
+        "latitude": "23.4004584",
+         "firstName": "Shamsad",
+            "lastName": "Ahmed",
+            "address": "Bariatu, Ranchi, Jharkhand, India",
+            "city": "Ranchi",
+            "province": "Jharkhand",
+            "zip": "834002",
+            "country": "India",
+            "webSite": "www.Shams.com",
+            "phoneNumber": "552225441"   
+        
+    },
+    {
+        "_id": "56665bd89968836562de166d",
+        "name": "CDE Corporation",
+        "type": "Customer",
+        "__v": 0,
+        "longitude": "-63.5345829",
+        "latitude": "44.6832226",
+         "firstName": "Taran",
+            "lastName": "Jotwani",
+            "address": "175 MAIN ST, Dartmouth, NS",
+            "city": "Dartmouth",
+            "province": "NS",
+            "zip": "B2X 1S1",
+            "country": "Canada",
+            "webSite": "www.taran.com",
+            "phoneNumber": "7789998245"   
+        
+    },
+   {
+        "_id": "56665bd89968836562de166b",
+        "name": "CDE Corporation",
+        "type": "Customer",
+        "__v": 0,
+        "longitude": "-63.5345829",
+        "latitude": "44.6832226",
+         "firstName": "Taran",
+            "lastName": "Jotwani",
+            "address": "175 MAIN ST, Dartmouth, NS",
+            "city": "Dartmouth",
+            "province": "NS",
+            "zip": "B2X 1S1",
+            "country": "Canada",
+            "webSite": "www.taran.com",
+            "phoneNumber": "7789998245"   
+        
+    },
+
+    {
+        "_id": "56665bd89968836562de166f",
+        "name": "CDE Corporation",
+        "type": "Customer",
+        "__v": 0,
+        "longitude": "-63.5345829",
+        "latitude": "44.6832226",
+         "firstName": "Taran",
+            "lastName": "Jotwani",
+            "address": "175 MAIN ST, Dartmouth, NS",
+            "city": "Dartmouth",
+            "province": "NS",
+            "zip": "B2X 1S1",
+            "country": "Canada",
+            "webSite": "www.taran.com",
+            "phoneNumber": "7789998245"   
+        
+    },
+
+    {
+        "_id": "56665bd89968836562de163c",
+        "name": "CDE Corporation",
+        "type": "Customer",
+        "__v": 0,
+        "longitude": "-63.5345829",
+        "latitude": "44.6832226",
+         "firstName": "Taran",
+            "lastName": "Jotwani",
+            "address": "175 MAIN ST, Dartmouth, NS",
+            "city": "Dartmouth",
+            "province": "NS",
+            "zip": "B2X 1S1",
+            "country": "Canada",
+            "webSite": "www.taran.com",
+            "phoneNumber": "7789998245"   
+        
+    }
+]

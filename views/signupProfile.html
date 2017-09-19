@@ -1,0 +1,219 @@
+<base href=""/>
+<!-- Navigation-->
+<ng-include src="'views/navigation.html'"></ng-include>
+
+<!-- end Navigation-->
+
+<div class="row">
+
+<div id="user-create" ng-controller="UserCreateController">
+
+    <section class="container">
+    
+    
+        <div class="block">
+            <div class="row">
+            
+                            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                
+                    <header>
+                        <h1 class="page-title">Sign Up-Create Profile</h1>
+                        <div ng-if="error" class="alert alert-danger" role="alert">{{error}}</div>
+                    </header>
+                    
+                    <hr>
+                    <form role="form" id="form-sign-in-account" method="post" name="userForm" novalidate>
+                    
+                  
+                        <fieldset ng-show="step == 1">
+                            <legend>Basics Information</legend>
+                            
+                              <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                                <label for="form-sign-in-email">Email:</label>
+                                <input type="email" class="form-control" id="form-sign-in-email" name="email" required ng-model="saveData.useremail">
+                                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                            </div><!-- /.form-group -->
+                            
+                           
+                        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                            <label for="form-sign-in-email">Username:</label>
+                            <input type="text" class="form-control" id="form-sign-in-username" name="username" required ng-model="saveData.username">
+                            <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">You name is required.</p>
+                        </div><!-- /.form-group -->
+
+
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+
+                                <label for="form-sign-in-password">Password:</label>
+                                <input type="password" class="form-control" id="form-sign-in-password" name="password" required ng-model="saveData.password" ng-minlength="8" >
+                               
+                              <p ng-show="userForm.password.$error.required && !userForm.password.$pristine" class="help-block">Enter a valid password.</p>
+                              <p ng-show="userForm.password.$error.minlength" class="help-block">Password must be atleast 8 characters.</p>        
+                              
+                               
+                               <div class="progress" style="margin-top:10px" ng-show="saveData.password.length>0">
+							<div class="progress-bar"
+									ng-class="{'progress-bar-success': isPasswordStrong(), 'progress-bar-warning': isPasswordOk(), 'progress-bar-danger': isPasswordWeak()}"
+									aria-valuenow="{{ passwordStrength }}"
+									aria-valuemin="0"
+									aria-valuemax="100"
+									style="width:{{ passwordStrength }}%">
+								
+							</div>
+						</div>          
+                            </div><!-- /.form-group -->
+                          
+                      
+                              <div class="form-group" ng-class="{ 'has-error' : userForm.cpassword.$invalid && !userForm.cpassword.$pristine }">
+
+                                <label for="form-sign-in-cpassword">Confirm Password:</label>
+                                <input type="password" class="form-control" id="form-sign-in-cpassword" name="cpassword" required ng-model="cpassword">
+                               
+                              <p ng-show="userForm.cpassword.$error.required && !userForm.cpassword.$pristine" class="help-block">Enter a valid password.</p>
+                              <p class="help-block" ng-show="(cpassword!=saveData.password) && !userForm.cpassword.$pristine && !userForm.cpassword.$error.required">Passwords don't match.</p>
+                              
+                                  
+                            </div><!-- /.form-group -->
+                         
+                            
+                            <button class="btn btn-primary" ng-click="nextStep()" ng-disabled="userForm.username.$invalid || userForm.email.$invalid  || userForm.password.$invalid || userForm.cpassword.$invalid || cpassword!=saveData.password">Next step</button>
+                        </fieldset>
+
+
+                        <div ng-show="step == 2">
+                            <legend>Primary Location Details</legend>
+
+
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">
+                                 <label for="form-sign-in-first-name">First Name:</label>
+                                <input type="text" class="form-control" id="form-sign-in-first-name" name="firstName" required ng-model="firstName">
+                                <p ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine" class="help-block">First Name is required.</p>
+                                </div><!-- form-group -->
+                                
+                                
+                                
+                                
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
+                                    <label for="form-sign-in-last-name">Last Name:</label>
+                                    <input type="text" class="form-control" id="form-sign-in-last-name" name="lastName" required ng-model="lastName">
+                                    <p ng-show="userForm.lastName.$invalid && !userForm.lastName.$pristine" class="help-block">Last Name is required.</p>
+                            
+                            </div><!-- form-group -->
+
+
+
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.address1.$invalid && !userForm.address1.$pristine }">
+                               
+                                <label for="form-sign-in-first-name">Address Line 1:</label>
+                               <input type="text" class="form-control" id="form-sign-in-address1" name="address1" required ng-model="address1" />
+                                <p ng-show="userForm.address1.$invalid && !userForm.address1.$pristine" class="help-block">Address is required.</p>
+                            </div><!-- /.form-group -->
+                               
+                                
+                                 <div class="form-group" ng-class="{ 'has-error' : userForm.address2.$invalid && !userForm.address2.$pristine }">
+                               
+                                <label for="form-sign-in-first-name">Address Line 2:(Optional)</label>
+                               <input type="text" class="form-control" id="form-sign-in-address2" name="address2" ng-model="address2" />
+                               
+                            </div><!-- /.form-group -->
+                              
+
+                          
+
+                            <div class="form-group" ng-class="{ 'has-error' : userForm.country.$invalid && !userForm.country.$pristine }">
+                              
+                                    <label for="form-sign-in-country">Country:</label>
+                                    
+                                    <select class="form-control" id="form-sign-in-country" name="country" required ng-model="userData.user.contact.country"  ng-options="obj.country as obj.country for obj in countries" ng-change="getCountryStates()">
+                                    <option value="">Choose Country</option>
+                                                                                                     
+                                    </select>
+                                   
+                                    <p ng-show="userForm.country.$invalid && !userForm.country.$pristine" class="help-block">Country Name is required.</p>
+                                    </div>
+                                    
+                                    
+                                     <div class="form-group" ng-class="{ 'has-error' : userForm.province.$invalid && !userForm.province.$pristine }">
+                                    <label for="form-sign-in-province">State/Province:</label>
+                                    <select type="text" class="form-control" id="form-sign-in-province" name="province" required ng-model="userData.user.contact.province" ng-options="x.state as x.state for x in states" ng-change = "getStateCities()">
+                    					<option value="">-- Choose State --</option>
+                						</select>
+                                    
+                                    <p ng-show="userForm.province.$invalid && !userForm.province.$pristine" class="help-block">State/Province is required.</p>
+                                </div>
+                                    
+                                      <div class="form-group" ng-class="{ 'has-error' : userForm.city.$invalid && !userForm.city.$pristine }">
+                                
+                                <label for="form-sign-in-city">City:</label>
+                                <select type="text" class="form-control" id="form-sign-in-city" name="city" required ng-model="userData.user.contact.city" ng-options="x.city as x.city for x in cities">                                
+                              
+                   				 <option value="">-- Choose City --</option>
+               					 </select>
+                                <p ng-show="userForm.city.$invalid && !userForm.city.$pristine" class="help-block">City is required.</p>
+                            </div><!-- /.form-group -->
+                              
+
+
+                           
+                             
+                                 <div class="form-group" ng-class="{ 'has-error' : userForm.zip.$invalid && !userForm.zip.$pristine }">
+                                    <label for="form-sign-in-zip">Zip Code:</label>
+                                    <input type="text" class="form-control" id="form-sign-in-zip" name="zip" required ng-model="userData.user.contact.zip" ng-pattern="/[ABCEGHJKLMNPRSTVXY]\d[A-Z ][ ]\d[A-Z]\d/" ng-maxlength="7" ng-minlength="7">
+                                    
+                                    <p ng-show="userForm.zip.$error.required && !userForm.zip.$pristine" class="help-block">Zip Code is required.</p>
+                                    <p data-ng-show='userForm.zip.$error.pattern || userForm.zip.$error.maxlength || userForm.zip.$error.minlength' class="help-block"> Zip Code is Invalid</p>  
+                             
+                            </div><!-- /.form-group -->
+                            
+                            
+                            
+                            
+                                    
+                                     <div class="form-group">
+                                   <input type="checkbox" name="terms" ng-model="terms"/> I agree to the Terms of Service of the Hive Market.
+                                    <p ng-show="!terms && !userForm.terms.$pristine" class="help-block">You have not read the terms and conditions.</p>
+                                   
+                             
+                            </div><!-- /.form-group -->
+                            
+                            
+                            
+                             
+                             
+                          
+
+                            <div class="form-group">
+                            <div class="col-sm-12 createAccount">
+                            <button class="btn btn-default" ng-click="prevStep()">Previous step</button>
+                            <button type="submit" class="btn btn-primary" ng-click="submitForm(userForm.$valid)" ng-disabled="userForm.$invalid || !terms">Create Account</button>
+                        </div>            
+                           </div><!-- form group -->
+</div>
+                             <div class="alreadyMember">
+                        <br/>
+                        Already a Member?&nbsp;<a href="#/login">Login</a>
+                     <!--   
+                      {{firstName}}
+                 {{saveData}}
+                      <br/> <br/>
+                      {{testData}}
+                      
+                      {{address2}}
+                      -->
+                        </div> 
+                            </div>
+                            
+                        </fieldset>
+                    </form>
+                    </div>
+                </div>
+
+            </div>
+
+    </section>
+    <!-- /.block-->
+</div>
+</div>
+<ng-include src="'views/common_footer.html'"></ng-include>
+
+

@@ -1,0 +1,36 @@
+﻿<div class="row" ng-controller="AddListingController">
+    <div class="col-md-3 col">
+
+    </div>
+    <div class="col-md-9">
+        <div class="col-md-6 col-sm-offset-1">
+            <h3>Add the Per unit price for your listing item</h3>
+
+            <hr>
+            <form role="form"  method="post" name="priceForm" novalidate>
+
+                <div class="form-group" ng-class="{ 'has-error' : priceForm.price.$invalid && !priceForm.price.$pristine }">
+                    <label for="title">Base Price:</label>
+                    <input type="number" class="form-control" name="price" required ng-model="baseprice">
+                    <p ng-show="priceForm.price.$invalid && !priceForm.price.$pristine" class="help-block">Base Price is Required.</p>
+
+                </div><!-- /.form-group -->
+                
+                <div class="form-group" ng-class="{ 'has-error' : priceForm.currency.$invalid && !priceForm.currency.$pristine }">
+                    <label for="select">Currency:</label>
+                    <select class="form-control" name="select" id="select" ng-model="data.select">
+                        <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+                    </select>
+                    <p ng-show="priceForm.currency.$invalid && !priceForm.currency.$pristine" class="help-block">Base Price is Required.</p>
+
+                </div><!-- /.form-group -->
+                
+                <div class="form-group" id="btn">
+
+                    <button type="submit" class="btn btn-primary" ng-click="prev('/details')">Back</button>
+                    <button type="submit" class="btn btn-primary col-sm-offset-9" ng-disabled="priceForm.$invalid" ng-click="next('/')">Next</button>
+                </div><!-- /.form-group -->
+            </form>
+        </div>
+    </div>
+</div>
